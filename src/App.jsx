@@ -72,7 +72,7 @@ function App() {
       experience: 'Work Experience',
       education: 'Education',
       projects: 'Featured Projects',
-      role: 'Senior Software Developer',
+      role: 'Software Developer',
       aboutText: "Hello! ",
     },
     th: {
@@ -81,7 +81,7 @@ function App() {
       experience: 'ประสบการณ์การทำงาน',
       education: 'การศึกษา',
       projects: 'โปรเจกต์ที่โดดเด่น',
-      role: 'นักพัฒนาซอฟต์แวร์อาวุโส',
+      role: 'นักพัฒนาซอฟต์แวร์',
       aboutText: 'สวัสดีครับ! ',
     }
   };
