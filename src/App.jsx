@@ -38,51 +38,130 @@ function App() {
   
     // Backend
     'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-    'PHP': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
+    // 'PHP': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
+    'PHP': 'public/image/php.png',
     'Adonis': '/image/AdonisJS.png',
     'REST APIs': '/image/api.png',
+    'Java': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
+    'Spring Boot': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg',
+    'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
   
-    // Software
+    // Tools & Software
     'Visual Studio': '/image/vscode.png',
     'Dbeaver': '/image/DBeaver_logo.png',
     'Figma': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
     'Microsoft Office': '/image/moffice.png',
+    'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+    'Docker': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+    'Postman': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg', // (ยังไม่มีใน devicon, อาจใช้ไอคอนสำรอง)
+    'Notion': 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg',
+    'Git': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+    'GitHub': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
+    'Cloudflare': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg',
+    'Intellij IDEA': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg',
   };
   
   const categories = [
     {
-      title: 'Frontend',
-      skills: ['React', 'Vue.js', 'Next.js', 'Tailwind CSS'],
+      title: 'Frameworks',
+      skills: ['Node.js' , 'React', 'Vue.js', 'Next.js', 'Tailwind CSS', 'Spring Boot'],
     },
     {
       title: 'Backend',
-      skills: ['Node.js', 'PHP', 'Adonis', 'REST APIs'],
+      skills: ['Java', 'JavaScript','Python', 'PHP', 'Adonis', 'REST APIs'],
     },
     {
-      title: 'Software',
-      skills: ['Visual Studio', 'Dbeaver', 'Figma', 'Microsoft Office'],
+      title: 'Software & Tools',
+      skills: ['Visual Studio','Intellij IDEA', 'Dbeaver', 'Figma', 'Microsoft Office', 'Notion'],
     },
-  ];
-  
+    {
+      title: 'DevOps & API',
+      skills: [ 'Git' , 'GitHub','Docker', 'Postman', 'Cloudflare'],
+    },
+  ];  
 
   const content = {
     en: {
       about: 'About Me',
-      skills: 'Skills & Expertise',
+      skills: 'Skills',
       experience: 'Work Experience',
+      experiences: [
+      {
+        title: 'President of the Information Systems Student',
+        company: 'Rajamangala University of Technology Thanyaburi',
+        period: 'April 2024 - Mar 2025',
+        achievements: [
+          'Developed leadership through practical, real-world experiences',
+          'Acquired skills in planning and managing student resources effectively',
+          'Enhanced ability to make decisions and solve problems under pressure'
+        ]
+      },
+      {
+        title: 'Full Stack Developer',
+        company: 'Vecabo Co., Ltd.',
+        period: 'June 2024 - October 2024',
+        achievements: [
+          'Strengthened communication and collaboration abilities through hands-on team projects',
+          'Practical experience in programming and designing professional PDF documents (e.g., quotations and receipts)',
+          'Participated in the development of internal resource management systems for business operations'
+        ]
+      },
+      {
+        title: 'Full Stack Developer',
+        company: 'Protoss Technology Co., Ltd.',
+        period: 'April 2024 - May 2024',
+        achievements: [
+          'Understanding frontend frameworks: React.js, Next.js, and Vue.js',
+          'Hands-on experience with Docker for containerization and DBeaver for database management',
+          'Understanding of Git commands and version control workflows'
+        ]
+      },
+    ],
       education: 'Education',
       projects: 'Featured Projects',
       role: 'Software Developer',
-      aboutText: "Hello! ",
+      aboutText: "My goal is to adventure into the world of technology That i love and consistently challenges. it's make me enthusiasm for learning about programming languages and new techniques will reach me to become an exceptional developer. I hope that Every code i write will be a part of creating a future that Advances in Technology",
     },
     th: {
-      about: 'เกี่ยวกับฉัน',
-      skills: 'ทักษะและความเชี่ยวชาญ',
+      about: 'รู้จักกันหน่อยไหม',
+      skills: 'ทักษะ',
       experience: 'ประสบการณ์การทำงาน',
+      experiences: [
+        {
+          title: 'ประธานสาขาภาควิชาระบบสารสนเทศ',
+          company: 'มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี',
+          period: 'เมษายน 2567 - มีนาคม 2568',
+          achievements: [
+            'ฝึกภาวะผู้นำผ่านการจัดกิจกรรมและประสบการณ์จริง',
+            'พัฒนาทักษะการวางแผนและบริหารทรัพยากรของนักศึกษา',
+            'เรียนรู้การตัดสินใจและแก้ปัญหาในสถานการณ์ที่มีความกดดัน'
+          ]
+        },
+        {
+          title: 'นักพัฒนา Full Stack',
+          company: 'บริษัท วีคาโบ้ จำกัด',
+          period: 'มิถุนายน 2567 - ตุลาคม 2567',
+          achievements: [
+            'ฝึกทักษะการทำงานเป็นทีม และการสื่อสารผ่านโปรเจกต์จริง',
+            'พัฒนาโปรแกรม และออกแบบเอกสาร PDF อย่างมืออาชีพ เช่น ใบเสนอราคาและใบเสร็จ',
+            'ร่วมพัฒนาระบบจัดการทรัพยากรภายในองค์กร'
+          ]
+        },
+        {
+          title: 'นักพัฒนา Full Stack',
+          company: 'บริษัท โพรทอส เทคโนโลยี จำกัด',
+          period: 'เมษายน 2567 - พฤษภาคม 2567',
+          achievements: [
+            'เรียนรู้การใช้งานเฟรมเวิร์ค React.js, Next.js, Vue.js',
+            'ใช้งาน Docker และ DBeaver ในการจัดการฐานข้อมูลจริง',
+            'เรียนรู้การใช้งานการใช้ Git และการควบคุมเวอร์ชันของโค้ด'
+          ]
+        },
+      ],
       education: 'การศึกษา',
       projects: 'โปรเจกต์ที่โดดเด่น',
       role: 'นักพัฒนาซอฟต์แวร์',
-      aboutText: 'สวัสดีครับ! ',
+      aboutText: 'เป้าหมายของผมคือการผจญภัยในโลกของเทคโนโลยีซึ่งเป็นที่ที่ผมรักและที่ทำให้ผมรู้สึกท้าทายอยู่ตลอดเวลาความกระตือรือร้นที่ไม่หยุดยั้งในการเรียนรู้เกี่ยวกับภาษาโปรแกรมและเทคนิคใหม่ๆ ทำให้ผมพร้อมที่จะเป็นนักพัฒนาที่ยอดเยี่ยม และตัวผมเองหวังว่า “ทุกโค้ดที่ผมเขียนจะเป็นส่วนหนึ่งของการสร้างอนาคตที่ก้าวหน้าทางด้านเทคโนโลยี” ฝากตัวด้วยก๊าบบ 🪿',
     }
   };
 
@@ -165,7 +244,7 @@ function App() {
                   {[
                     { icon: Github, href: 'https://github.com/Basssss2003s', hoverColor: 'hover:text-blue-400' },
                     { icon: Instagram, href: 'https://instagram.com/basssss.s', hoverColor: 'hover:text-pink-400' },
-                    { icon: Linkedin, href: 'https://linkedin.com/in/yourusername', hoverColor: 'hover:text-blue-500' }
+                    { icon: Linkedin, href: 'https://www.linkedin.com/in/rittinun-disaraphong-516604327/', hoverColor: 'hover:text-blue-500' }
                   ].map(({ icon: Icon, href, hoverColor }) => (
                     <a
                       key={href}
@@ -238,58 +317,28 @@ function App() {
             </div>
 
             {/* Experience Section */}
-            <div className={`rounded-xl p-8 backdrop-blur-sm mb-12 transition-all duration-300 ease-in-out ${
-              isDark 
-                ? 'bg-gray-800/50 hover:bg-gray-800/70' 
-                : 'bg-white/50 hover:bg-white/70 shadow-lg'
-            }`}>
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                <Briefcase className={textColors.accent} /> {t.experience}
-              </h2>
-              <div className="space-y-8">
-                {[{
-                    title: 'President of the Information Systems Student',
-                    company: 'Rajamangala University of Technology Thanyaburi',
-                    period: 'April 2024 - Mar 2025',
-                    achievements: [
-                      'Developed leadership through practical, real-world experiences',
-                      'Acquired skills in planning and managing student resources effectively',
-                      'Enhanced ability to make decisions and solve problems under pressure'
-                    ]
-                  },
-                  {
-                    title: 'Full Stack Developer',
-                    company: 'Vecabo Co., Ltd.',
-                    period: 'June 2024 - October 2024',
-                    achievements: [
-                      'Strengthened communication and collaboration abilities through hands-on team projects',
-                      'Practical experience in programming and designing professional PDF documents (e.g., quotations and receipts)',
-                      'Participated in the development of internal resource management systems for business operations'
-                    ]
-                  },
-                  {
-                    title: 'Full Stack Developer',
-                    company: 'Protoss Technology Co., Ltd.',
-                    period: 'April 2024 - May 2024',
-                    achievements: [
-                      'Proficient in modern frontend frameworks: React.js, Next.js, and Vue.js',
-                      'Hands-on experience with Docker for containerization and DBeaver for database management',
-                      'Solid understanding of Git commands and version control workflows'
-                    ]
-                  },
-                ].map((job) => (
-                  <div key={job.title} className="transform hover:scale-[1.01] transition-all duration-300 ease-in-out">
-                    <h3 className="text-xl font-semibold">{job.title}</h3>
-                    <p className={textColors.accent}>{job.company} • {job.period}</p>
-                    <ul className={`mt-2 list-disc list-inside space-y-1 ${textColors.secondary}`}>
-                      {job.achievements.map((achievement) => (
-                        <li key={achievement}>{achievement}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+              <div className={`rounded-xl p-8 backdrop-blur-sm mb-12 transition-all duration-300 ease-in-out ${
+                isDark 
+                  ? 'bg-gray-800/50 hover:bg-gray-800/70' 
+                  : 'bg-white/50 hover:bg-white/70 shadow-lg'
+              }`}>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                  <Briefcase className={textColors.accent} /> {t.experience}
+                </h2>
+                <div className="space-y-8">
+                 {t.experiences.map((job, index) => (
+                    <div key={`${job.title}-${job.company}-${index}`} className="transform hover:scale-[1.01] transition-all duration-300 ease-in-out">
+                      <h3 className="text-xl font-semibold">{job.title}</h3>
+                      <p className={textColors.accent}>{job.company} • {job.period}</p>
+                      <ul className={`mt-2 list-disc list-inside space-y-1 ${textColors.secondary}`}>
+                        {job.achievements.map((achievement) => (
+                          <li key={achievement}>{achievement}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
 
             {/* Education Section */}
             <div className={`rounded-xl p-8 backdrop-blur-sm mb-12 transition-all duration-300 ease-in-out ${
@@ -300,19 +349,34 @@ function App() {
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 <GraduationCap className={textColors.accent} /> {t.education}
               </h2>
+
               <div className="transform hover:scale-[1.01] transition-all duration-300 ease-in-out">
-                <h3 className="text-xl font-semibold">Rajamangala University of Technology Thanyaburi</h3>
-                <p className={textColors.accent}>University • 2021 - 2025</p>
+                <h3 className="text-xl font-semibold">
+                  {isEnglish ? 'Rajamangala University of Technology Thanyaburi' : 'มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี'}
+                </h3>
+                <p className={textColors.accent}>
+                  {isEnglish ? 'University • 2021 - 2025' : 'มหาวิทยาลัย • 2564 - 2568'}
+                </p>
                 <p className={`mt-2 ${textColors.secondary}`}>
-                  Information Systems Program.
+                  {isEnglish 
+                    ? 'Information Systems Program. GPAX 3.35/4.00' 
+                    : 'สาขาระบบสารสนเทศ เกรดเฉลี่ยสะสม 3.35/4.00'}
                 </p>
               </div>
-              <br></br>
+
+              <br />
+
               <div className="transform hover:scale-[1.01] transition-all duration-300 ease-in-out">
-                <h3 className="text-xl font-semibold">Matthayom Wat Dusitaram School</h3>
-                <p className={textColors.accent}>High School • 2014 - 2020</p>
+                <h3 className="text-xl font-semibold">
+                  {isEnglish ? 'Matthayom Wat Dusitaram School' : 'โรงเรียนมัธยมวัดดุสิตาราม'}
+                </h3>
+                <p className={textColors.accent}>
+                  {isEnglish ? 'High School • 2014 - 2020' : 'มัธยมศึกษา • 2557 - 2563'}
+                </p>
                 <p className={`mt-2 ${textColors.secondary}`}>
-                  Mathematics English Program.
+                  {isEnglish 
+                    ? 'Mathematics English Program. GPAX 3.60/4.00' 
+                    : 'แผนการเรียนคณิตศาสตร์-อังกฤษ เกรดเฉลี่ยสะสม 3.60/4.00'}
                 </p>
               </div>
             </div>
@@ -329,35 +393,57 @@ function App() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
                   {
-                    title: 'Company Management',
-                    description: 'Comming Soon...'
+                    title: 'Report Problem RTBS', 
+                    image: 'public/image/ReportRTBS.png',
+                    description: 'โปรเจกต์นี้เป็นระบบรายงานปัญหาสำหรับนักศึกษาและบุคลากรของมหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี โดยมีฟีเจอร์หลักในการรายงานปัญหาและติดตามสถานะการแก้ไขปัญหา',
+                  },
+                  {
+                    title: 'Fleetex Vecabo',
+                    image: 'public/image/VecaboFleetex.png',
+                    description: 'โปรเจกต์นี้เป็นระบบจัดการทรัพยากรภายในของบริษัท Vecabo Co., Ltd. โดยมีฟีเจอร์หลักในการจัดการทรัพยากรต่างๆ เช่น การจัดการพนักงาน ออกเอกสารต่างๆ',
+                  },
+                  {
+                    title: 'Comming Soon...',
+                    image: '/image/comingsoon.png',
+                    description: 'Comming Soon...',
                   },
                   {
                     title: 'Report Problem',
-                    description: 'Comming Soon...'
+                    image: '/image/comingsoon.png',
+                    description: 'Comming Soon...',
                   }
-                ].map((project) => (
+                ].map((project, index) => (
                   <div
-                    key={project.title}
+                    key={index}
                     className={`rounded-lg p-6 transform hover:scale-[1.01] transition-all duration-300 ease-in-out ${
                       isDark ? 'bg-gray-700/50' : 'bg-gray-100'
                     }`}
                   >
-                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                    <p className={`mb-4 ${textColors.secondary}`}>
+                    {/* Title */}
+                    <h3 className="text-xl font-semibold mb-4">{project.title}</h3>
+
+                    {/* Image */}
+                    {project.image && (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-48 object-cover rounded-lg mb-4 shadow"
+                      />
+                    )}
+
+                    {/* Description */}
+                    <p className={`${textColors.secondary}`}>
                       {project.description}
                     </p>
-                    <a 
-                      href="#" 
-                      className={`inline-flex items-center gap-2 ${textColors.accent} hover:text-blue-300 transition-colors duration-200`}
-                    >
-                      View Project <ExternalLink size={16} />
-                    </a>
                   </div>
                 ))}
               </div>
             </div>
           </div>
+          {/* Footer Section */}
+          <footer className={`text-center py-6 mt-6 transition-all duration-300 ease-in-out ${textColors.secondary}`}>
+            © 2025 Rittinun Disaraphong. All rights reserved.
+          </footer>
         </div>
       </div>
     </div>
