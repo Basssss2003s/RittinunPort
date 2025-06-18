@@ -16,6 +16,7 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isDark, setIsDark] = useState(true);
   const [isEnglish, setIsEnglish] = useState(true);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -39,7 +40,7 @@ function App() {
     // Backend
     'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
     // 'PHP': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
-    'PHP': 'public/image/php.png',
+    'PHP': '/image/php.png',
     'Adonis': '/image/AdonisJS.png',
     'REST APIs': '/image/api.png',
     'Java': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
@@ -119,6 +120,7 @@ function App() {
     ],
       education: 'Education',
       projects: 'Featured Projects',
+      ProjectsAdvisor: 'Projects Advisor',
       role: 'Software Developer',
       aboutText: "My goal is to adventure into the world of technology That i love and consistently challenges. it's make me enthusiasm for learning about programming languages and new techniques will reach me to become an exceptional developer. I hope that Every code i write will be a part of creating a future that Advances in Technology",
     },
@@ -160,6 +162,7 @@ function App() {
       ],
       education: 'การศึกษา',
       projects: 'โปรเจกต์ที่โดดเด่น',
+      ProjectsAdvisor: 'ที่ปรีกษาโปรเจกต์',
       role: 'นักพัฒนาซอฟต์แวร์',
       aboutText: 'เป้าหมายของผมคือการผจญภัยในโลกของเทคโนโลยีซึ่งเป็นที่ที่ผมรักและที่ทำให้ผมรู้สึกท้าทายอยู่ตลอดเวลาความกระตือรือร้นที่ไม่หยุดยั้งในการเรียนรู้เกี่ยวกับภาษาโปรแกรมและเทคนิคใหม่ๆ ทำให้ผมพร้อมที่จะเป็นนักพัฒนาที่ยอดเยี่ยม และตัวผมเองหวังว่า “ทุกโค้ดที่ผมเขียนจะเป็นส่วนหนึ่งของการสร้างอนาคตที่ก้าวหน้าทางด้านเทคโนโลยี” ฝากตัวด้วยก๊าบบ 🪿',
     }
@@ -412,6 +415,98 @@ function App() {
                   //   image: '/image/comingsoon.png',
                   //   description: 'Comming Soon...',
                   // }
+                ].map((project, index) => (
+                  <div
+                    key={index}
+                    className={`rounded-lg p-6 transform hover:scale-[1.01] transition-all duration-300 ease-in-out ${
+                      isDark ? 'bg-gray-700/50' : 'bg-gray-100'
+                    }`}
+                  >
+                    {/* Title */}
+                    <h3 className="text-xl font-semibold mb-4">{project.title}</h3>
+
+                    {/* Image */}
+                    {project.image && (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-48 object-cover rounded-lg mb-4 shadow cursor-pointer"
+                        onClick={() => setSelectedProject(project)}
+                      />
+                    )}
+
+                    {/* Description */}
+                    <p className={`${textColors.secondary}`}>
+                      {project.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              {/* Modal */}
+              {selectedProject && (
+              <div 
+                className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+                onClick={() => setSelectedProject(null)}
+              >
+                <div 
+                  className={`bg-white dark:bg-gray-800 rounded-xl max-w-lg w-[90%] sm:w-full p-6 shadow-xl relative transition-all duration-300`}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {/* Close button */}
+                  <button 
+                    onClick={() => setSelectedProject(null)} 
+                    className="absolute top-2 right-3 text-gray-400 hover:text-red-500 text-xl"
+                  >
+                    &times;
+                  </button>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold mb-4 text-center">{selectedProject.title}</h3>
+
+                  {/* Image */}
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-56 object-cover rounded-lg mb-4"
+                  />
+
+                  {/* Description */}
+                  <p className="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">
+                    {selectedProject.description}
+                  </p>
+                </div>
+              </div>
+            )}
+            </div>
+
+            {/* Projects Advisor */}
+            <div className={`rounded-xl p-8 backdrop-blur-sm transition-all mt-12 duration-300 ease-in-out ${
+              isDark 
+                ? 'bg-gray-800/50 hover:bg-gray-800/70' 
+                : 'bg-white/50 hover:bg-white/70 shadow-lg'
+            }`}>
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                <Code className={textColors.accent} /> {t.ProjectsAdvisor}
+              </h2>
+
+              {/* ✅ ปรับ grid-cols-3 */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {[
+                  {
+                    title: 'RoomBooking', 
+                    image: 'image/RoomBooking.png',
+                    description: 'โปรเจกต์นี้เป็นระบบจองห้องประชุมภายในบริษัท โดยมีฟีเจอร์หลักในการจองห้องเรียนและติดตามสถานะการจอง ตัวผมได้ให้คำปรึกษาและช่วยพัฒนาระบบนี้ในฐานะที่ปรึกษา',
+                  },
+                  {
+                    title: 'Cat Hotel Booking',
+                    image: 'image/CatHotel.png',
+                    description: 'โปรเจกต์นี้เป็นระบบจองห้องพักน้องแมว โดยมีฟีเจอร์หลักในการจองห้องพัก ระบบหลังบ้าน ระบบรายงานสรุปผล ตัวผมได้ให้คำปรึกษาและช่วยพัฒนาระบบนี้ในฐานะที่ปรึกษา',
+                  },
+                  {
+                    title: 'JIBFINN',
+                    image: '/image/jibfinn.png',
+                    description: 'โปรเจกต์นี้เป็นระบบสินเชื่อ โดยมีฟีเจอร์หลักในการผ่อนซื้อสินค้า ระบบคำนวณระยะเวลา ระบบรายงานสรุปผล ตัวผมได้ให้คำปรึกษาและช่วยพัฒนาระบบนี้ในฐานะที่ปรึกษา',
+                  }
                 ].map((project, index) => (
                   <div
                     key={index}
