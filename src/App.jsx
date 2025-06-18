@@ -394,24 +394,24 @@ function App() {
                 {[
                   {
                     title: 'Report Problem RTBS', 
-                    image: 'public/image/ReportRTBS.png',
+                    image: 'image/ReportRTBS.png',
                     description: 'โปรเจกต์นี้เป็นระบบรายงานปัญหาสำหรับนักศึกษาและบุคลากรของมหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี โดยมีฟีเจอร์หลักในการรายงานปัญหาและติดตามสถานะการแก้ไขปัญหา',
                   },
                   {
                     title: 'Fleetex Vecabo',
-                    image: 'public/image/VecaboFleetex.png',
+                    image: 'image/VecaboFleetex.png',
                     description: 'โปรเจกต์นี้เป็นระบบจัดการทรัพยากรภายในของบริษัท Vecabo Co., Ltd. โดยมีฟีเจอร์หลักในการจัดการทรัพยากรต่างๆ เช่น การจัดการพนักงาน ออกเอกสารต่างๆ',
                   },
-                  {
-                    title: 'Comming Soon...',
-                    image: '/image/comingsoon.png',
-                    description: 'Comming Soon...',
-                  },
-                  {
-                    title: 'Report Problem',
-                    image: '/image/comingsoon.png',
-                    description: 'Comming Soon...',
-                  }
+                  // {
+                  //   title: 'Comming Soon...',
+                  //   image: '/image/comingsoon.png',
+                  //   description: 'Comming Soon...',
+                  // },
+                  // {
+                  //   title: 'Report Problem',
+                  //   image: '/image/comingsoon.png',
+                  //   description: 'Comming Soon...',
+                  // }
                 ].map((project, index) => (
                   <div
                     key={index}
