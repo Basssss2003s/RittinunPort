@@ -22,6 +22,27 @@ function App() {
     setIsLoaded(true);
   }, []);
 
+  useEffect(() => {
+    if (selectedProject) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.overflow = 'hidden';
+      document.body.dataset.scrollY = scrollY.toString();
+    } else {
+      const scrollY = document.body.dataset.scrollY || '0';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.overflow = '';
+      window.scrollTo(0, parseInt(scrollY));
+    }
+  }, [selectedProject]);
+  
+
   const handleThemeChange = () => {
     setIsDark(!isDark);
   };
@@ -407,16 +428,6 @@ function App() {
                     description: 'โปรเจกต์นี้เป็นระบบจัดการทรัพยากรภายในของบริษัท Vecabo Co., Ltd. โดยมีฟีเจอร์หลักในการจัดการทรัพยากรต่างๆ เช่น การจัดการพนักงาน ออกเอกสารต่างๆ',
                     framework: 'Vue.js, Tailwind CSS, AdonisJS',
                   },
-                  // {
-                  //   title: 'Comming Soon...',
-                  //   image: '/image/comingsoon.png',
-                  //   description: 'Comming Soon...',
-                  // },
-                  // {
-                  //   title: 'Report Problem',
-                  //   image: '/image/comingsoon.png',
-                  //   description: 'Comming Soon...',
-                  // }
                 ].map((project, index) => (
                   <div
                     key={index}
@@ -429,12 +440,24 @@ function App() {
 
                     {/* Image */}
                     {project.image && (
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-48 object-cover rounded-lg mb-4 shadow cursor-pointer"
+                      <div
+                        className="relative w-full h-48 rounded-lg overflow-hidden shadow group cursor-pointer"
                         onClick={() => setSelectedProject(project)}
-                      />
+                      >
+                        {/* รูปภาพ */}
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+
+                        {/* Overlay ดำโปร่ง */}
+                        <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <span className="text-white text-lg font-semibold">
+                            {isEnglish ? 'View More' : 'ดูเพิ่มเติม'}
+                          </span>
+                        </div>
+                      </div>
                     )}
 
                     {/* Description */}
@@ -463,43 +486,7 @@ function App() {
                   </div>
                 ))}
               </div>
-              {/* Modal */}
-              {selectedProject && (
-              <div 
-                className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-                onClick={() => setSelectedProject(null)}
-              >
-                <div 
-                  className={`bg-white dark:bg-gray-800 rounded-xl max-w-lg w-[90%] sm:w-full p-6 shadow-xl relative transition-all duration-300`}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {/* Close button */}
-                  <button 
-                    onClick={() => setSelectedProject(null)} 
-                    className="absolute top-2 right-3 text-gray-400 hover:text-red-500 text-xl"
-                  >
-                    &times;
-                  </button>
-
-                  {/* Title */}
-                  <h3 className="text-2xl font-bold mb-4 text-center">{selectedProject.title}</h3>
-
-                  {/* Image */}
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    className="w-full h-56 object-cover rounded-lg mb-4"
-                  />
-
-                  {/* Description */}
-                  <p className="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">
-                    {selectedProject.description}
-                  </p>
-                </div>
-              </div>
-            )}
             </div>
-
             {/* Projects Advisor */}
             <div className={`rounded-xl p-8 backdrop-blur-sm transition-all mt-12 duration-300 ease-in-out ${
               isDark 
@@ -516,7 +503,7 @@ function App() {
                   {
                     title: 'RoomBooking', 
                     image: 'image/RoomBooking.png',
-                    description: 'โปรเจกต์นี้เป็นระบบจองห้องประชุมภายในบริษัท โดยมีฟีเจอร์หลักในการจองห้องเรียนและติดตามสถานะการจอง ตัวผมได้ให้คำปรึกษาและช่วยพัฒนาระบบนี้ในฐานะที่ปรึกษา',
+                    description: 'โปรเจกต์นี้เป็นระบบจองห้องประชุมภายในบริษัท โดยมีฟีเจอร์หลักในการจองห้องประชุมและติดตามสถานะการจอง ตัวผมได้ให้คำปรึกษาและช่วยพัฒนาระบบนี้ในฐานะที่ปรึกษา',
                     framework: 'PHP, XAMPP, JavaScript'
                   },
                   {
@@ -584,6 +571,37 @@ function App() {
           </footer>
         </div>
       </div>
+      {selectedProject && (
+      <div 
+        className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50"
+        onClick={() => setSelectedProject(null)}
+      >
+        {/* ✅ ใส่ animate-fadeInUp ตรงนี้ */}
+        <div
+          className="bg-white dark:bg-gray-800 rounded-xl max-w-lg w-[90%] sm:w-full p-6 shadow-xl relative animate-fadeInUp"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button 
+            onClick={() => setSelectedProject(null)} 
+            className="absolute top-2 right-3 text-gray-400 hover:text-red-500 text-xl"
+          >
+            &times;
+          </button>
+
+          <h3 className="text-2xl font-bold mb-4 text-center">{selectedProject.title}</h3>
+
+          <img
+            src={selectedProject.image}
+            alt={selectedProject.title}
+            className="w-full h-56 object-cover rounded-lg mb-4"
+          />
+
+          <p className="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">
+            {selectedProject.description}
+          </p>
+        </div>
+      </div>
+    )}
     </div>
   );
 }
