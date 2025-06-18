@@ -399,11 +399,13 @@ function App() {
                     title: 'Report Problem RTBS', 
                     image: 'image/ReportRTBS.png',
                     description: 'โปรเจกต์นี้เป็นระบบรายงานปัญหาสำหรับนักศึกษาและบุคลากรของมหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี โดยมีฟีเจอร์หลักในการรายงานปัญหาและติดตามสถานะการแก้ไขปัญหา',
+                    framework: 'Next.js, Tailwind CSS, Kotlin',
                   },
                   {
                     title: 'Fleetex Vecabo',
                     image: 'image/VecaboFleetex.png',
                     description: 'โปรเจกต์นี้เป็นระบบจัดการทรัพยากรภายในของบริษัท Vecabo Co., Ltd. โดยมีฟีเจอร์หลักในการจัดการทรัพยากรต่างๆ เช่น การจัดการพนักงาน ออกเอกสารต่างๆ',
+                    framework: 'Vue.js, Tailwind CSS, AdonisJS',
                   },
                   // {
                   //   title: 'Comming Soon...',
@@ -439,6 +441,25 @@ function App() {
                     <p className={`${textColors.secondary}`}>
                       {project.description}
                     </p>
+
+                    {/* Framework */}
+                    {project.framework && (
+                      <div className="flex flex-row flex-wrap gap-2 mt-4">
+                        {project.framework
+                          .split(',')
+                          .map(fw => fw.trim())
+                          .map((fw, index) => (
+                            <span
+                              key={index}
+                              className={`inline-block px-3 py-1 text-sm font-medium rounded-full 
+                                ${isDark ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-800'}
+                              `}
+                            >
+                              {fw}
+                            </span>
+                          ))}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -496,16 +517,19 @@ function App() {
                     title: 'RoomBooking', 
                     image: 'image/RoomBooking.png',
                     description: 'โปรเจกต์นี้เป็นระบบจองห้องประชุมภายในบริษัท โดยมีฟีเจอร์หลักในการจองห้องเรียนและติดตามสถานะการจอง ตัวผมได้ให้คำปรึกษาและช่วยพัฒนาระบบนี้ในฐานะที่ปรึกษา',
+                    framework: 'PHP, XAMPP, JavaScript'
                   },
                   {
                     title: 'Cat Hotel Booking',
                     image: 'image/CatHotel.png',
                     description: 'โปรเจกต์นี้เป็นระบบจองห้องพักน้องแมว โดยมีฟีเจอร์หลักในการจองห้องพัก ระบบหลังบ้าน ระบบรายงานสรุปผล ตัวผมได้ให้คำปรึกษาและช่วยพัฒนาระบบนี้ในฐานะที่ปรึกษา',
+                    framework: 'PHP, XAMPP, JavaScript'
                   },
                   {
                     title: 'JIBFINN',
                     image: '/image/jibfinn.png',
                     description: 'โปรเจกต์นี้เป็นระบบสินเชื่อ โดยมีฟีเจอร์หลักในการผ่อนซื้อสินค้า ระบบคำนวณระยะเวลา ระบบรายงานสรุปผล ตัวผมได้ให้คำปรึกษาและช่วยพัฒนาระบบนี้ในฐานะที่ปรึกษา',
+                    framework: 'React.js, Docker, JavaScript'
                   }
                 ].map((project, index) => (
                   <div
@@ -530,6 +554,25 @@ function App() {
                     <p className={`${textColors.secondary}`}>
                       {project.description}
                     </p>
+
+                    {/* Framework */}
+                    {project.framework && (
+                      <div className="flex flex-row flex-wrap gap-2 mt-4">
+                        {project.framework
+                          .split(',')
+                          .map(fw => fw.trim())
+                          .map((fw, index) => (
+                            <span
+                              key={index}
+                              className={`inline-block px-3 py-1 text-sm font-medium rounded-full 
+                                ${isDark ? 'bg-gray-700 text-white' : 'bg-gray-200 text-gray-800'}
+                              `}
+                            >
+                              {fw}
+                            </span>
+                          ))}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
